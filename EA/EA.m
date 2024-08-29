@@ -1,88 +1,88 @@
-%% Matlabè‡ªå¸¦çš„ç²’å­ç¾¤å‡½æ•° particleswarm
-% particleswarmå‡½æ•°æ˜¯æ±‚æœ€å°å€¼çš„
-% å¦‚æœç›®æ ‡å‡½æ•°æ˜¯æ±‚æœ€å¤§å€¼åˆ™éœ€è¦æ·»åŠ è´Ÿå·ä»è€Œè½¬æ¢ä¸ºæ±‚æœ€å°å€¼ã€‚
+%% Matlab×Ô´øµÄÁ£×ÓÈºº¯Êı particleswarm
+% particleswarmº¯ÊıÊÇÇó×îĞ¡ÖµµÄ
+% Èç¹ûÄ¿±êº¯ÊıÊÇÇó×î´óÖµÔòĞèÒªÌí¼Ó¸ººÅ´Ó¶ø×ª»»ÎªÇó×îĞ¡Öµ¡£
 
 clear;clc
-%  Matlabä¸­ç²’å­ç¾¤ç®—æ³•å‡½æ•°çš„å‚è€ƒæ–‡çŒ®
-%       Mezura-Montes, E., and C. A. Coello Coello. "Constraint-handling in nature-inspired numerical optimization: Past, present and future." Swarm and Evolutionary Computation. 2011, pp. 173â€“194.
+%  MatlabÖĞÁ£×ÓÈºËã·¨º¯ÊıµÄ²Î¿¼ÎÄÏ×
+%       Mezura-Montes, E., and C. A. Coello Coello. "Constraint-handling in nature-inspired numerical optimization: Past, present and future." Swarm and Evolutionary Computation. 2011, pp. 173¨C194.
 %       Pedersen, M. E. "Good Parameters for Particle Swarm Optimization." Luxembourg: Hvass Laboratories, 2010.
 %       Iadevaia, S., Lu, Y., Morales, F. C., Mills, G. B. & Ram, P. T. Identification of optimal drug combinations targeting cellular networks: integrating phospho-proteomics and computational network analysis. Cancer Res. 70, 6704-6714 (2010).
 %       Liu, Mingshou , D. Shin , and H. I. Kang . "Parameter estimation in dynamic biochemical systems based on adaptive Particle Swarm Optimization." Information, Communications and Signal Processing, 2009. ICICS 2009. 7th International Conference on IEEE Press, 2010.
 
-%% æ±‚è§£å‡½æ•°y = x1^2+x2^2-x1*x2-10*x1-4*x2+60åœ¨[-15,15]å†…çš„æœ€å°å€¼ï¼ˆæœ€å°å€¼ä¸º8ï¼‰
-narvs = 2; % å˜é‡ä¸ªæ•°
-x_lb = [-15 -15]; % xçš„ä¸‹ç•Œ(é•¿åº¦ç­‰äºå˜é‡çš„ä¸ªæ•°ï¼Œæ¯ä¸ªå˜é‡å¯¹åº”ä¸€ä¸ªä¸‹ç•Œçº¦æŸ)
-x_ub = [15 15]; % xçš„ä¸Šç•Œ
+%% Çó½âº¯Êıy = x1^2+x2^2-x1*x2-10*x1-4*x2+60ÔÚ[-15,15]ÄÚµÄ×îĞ¡Öµ£¨×îĞ¡ÖµÎª8£©
+narvs = 2; % ±äÁ¿¸öÊı
+x_lb = [-15 -15]; % xµÄÏÂ½ç(³¤¶ÈµÈÓÚ±äÁ¿µÄ¸öÊı£¬Ã¿¸ö±äÁ¿¶ÔÓ¦Ò»¸öÏÂ½çÔ¼Êø)
+x_ub = [15 15]; % xµÄÉÏ½ç
 [x,fval,exitflag,output] = particleswarm(@Obj_fun2, narvs, x_lb, x_ub)   
 
-%% ç›´æ¥è°ƒç”¨particleswarmå‡½æ•°è¿›è¡Œæ±‚è§£æµ‹è¯•å‡½æ•°
-narvs = 30; % å˜é‡ä¸ªæ•°
-% Sphereå‡½æ•°
-% x_lb = -100*ones(1,30); % xçš„ä¸‹ç•Œ
-% x_ub = 100*ones(1,30); % xçš„ä¸Šç•Œ
-% Rosenbrockå‡½æ•°
-x_lb = -30*ones(1,30); % xçš„ä¸‹ç•Œ
-x_ub = 30*ones(1,30); % xçš„ä¸Šç•Œ
-% Rastriginå‡½æ•°
-% x_lb = -5.12*ones(1,30); % xçš„ä¸‹ç•Œ
-% x_ub = 5.12*ones(1,30); % xçš„ä¸Šç•Œ
-% Griewankå‡½æ•°
-% x_lb = -600*ones(1,30); % xçš„ä¸‹ç•Œ
-% x_ub = 600*ones(1,30); % xçš„ä¸Šç•Œ
+%% Ö±½Óµ÷ÓÃparticleswarmº¯Êı½øĞĞÇó½â²âÊÔº¯Êı
+narvs = 30; % ±äÁ¿¸öÊı
+% Sphereº¯Êı
+% x_lb = -100*ones(1,30); % xµÄÏÂ½ç
+% x_ub = 100*ones(1,30); % xµÄÉÏ½ç
+% Rosenbrockº¯Êı
+x_lb = -30*ones(1,30); % xµÄÏÂ½ç
+x_ub = 30*ones(1,30); % xµÄÉÏ½ç
+% Rastriginº¯Êı
+% x_lb = -5.12*ones(1,30); % xµÄÏÂ½ç
+% x_ub = 5.12*ones(1,30); % xµÄÉÏ½ç
+% Griewankº¯Êı
+% x_lb = -600*ones(1,30); % xµÄÏÂ½ç
+% x_ub = 600*ones(1,30); % xµÄÉÏ½ç
 [x,fval,exitflag,output] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub)  
 
 
-%% ç»˜åˆ¶æœ€ä½³çš„å‡½æ•°å€¼éšè¿­ä»£æ¬¡æ•°çš„å˜åŒ–å›¾
+%% »æÖÆ×î¼ÑµÄº¯ÊıÖµËæµü´ú´ÎÊıµÄ±ä»¯Í¼
 options = optimoptions('particleswarm','PlotFcn','pswplotbestf')   
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% å±•ç¤ºå‡½æ•°çš„è¿­ä»£è¿‡ç¨‹
+%% Õ¹Ê¾º¯ÊıµÄµü´ú¹ı³Ì
 options = optimoptions('particleswarm','Display','iter');
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% ä¿®æ”¹ç²’å­æ•°é‡ï¼Œé»˜è®¤çš„æ˜¯ï¼šmin(100,10*nvars)
+%% ĞŞ¸ÄÁ£×ÓÊıÁ¿£¬Ä¬ÈÏµÄÊÇ£ºmin(100,10*nvars)
 options = optimoptions('particleswarm','SwarmSize',50);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% åœ¨ç²’å­ç¾¤ç®—æ³•ç»“æŸåç»§ç»­è°ƒç”¨å…¶ä»–å‡½æ•°è¿›è¡Œæ··åˆæ±‚è§£ï¼ˆhybrid  n.æ··åˆç‰©åˆæˆç‰©; adj.æ··åˆçš„; æ‚ç§çš„;ï¼‰ 
+%% ÔÚÁ£×ÓÈºËã·¨½áÊøºó¼ÌĞøµ÷ÓÃÆäËûº¯Êı½øĞĞ»ìºÏÇó½â£¨hybrid  n.»ìºÏÎïºÏ³ÉÎï; adj.»ìºÏµÄ; ÔÓÖÖµÄ;£© 
 options = optimoptions('particleswarm','HybridFcn',@fmincon);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% æƒ¯æ€§æƒé‡çš„å˜åŒ–èŒƒå›´ï¼Œé»˜è®¤çš„æ˜¯0.1-1.1
+%% ¹ßĞÔÈ¨ÖØµÄ±ä»¯·¶Î§£¬Ä¬ÈÏµÄÊÇ0.1-1.1
 options = optimoptions('particleswarm','InertiaRange',[0.2 1.2]);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% ä¸ªä½“å­¦ä¹ å› å­ï¼Œé»˜è®¤çš„æ˜¯1.49ï¼ˆå‹ç¼©å› å­ï¼‰
+%% ¸öÌåÑ§Ï°Òò×Ó£¬Ä¬ÈÏµÄÊÇ1.49£¨Ñ¹ËõÒò×Ó£©
 options = optimoptions('particleswarm','SelfAdjustmentWeight',2);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% ç¤¾ä¼šå­¦ä¹ å› å­ï¼Œé»˜è®¤çš„æ˜¯1.49ï¼ˆå‹ç¼©å› å­ï¼‰
+%% Éç»áÑ§Ï°Òò×Ó£¬Ä¬ÈÏµÄÊÇ1.49£¨Ñ¹ËõÒò×Ó£©
 options = optimoptions('particleswarm','SocialAdjustmentWeight',2);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% æœ€å¤§çš„è¿­ä»£æ¬¡æ•°ï¼Œé»˜è®¤çš„æ˜¯200*nvars
+%% ×î´óµÄµü´ú´ÎÊı£¬Ä¬ÈÏµÄÊÇ200*nvars
 options = optimoptions('particleswarm','MaxIterations',10000);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% é¢†åŸŸå†…ç²’å­çš„æ¯”ä¾‹ MinNeighborsFractionï¼Œé»˜è®¤æ˜¯0.25 
+%% ÁìÓòÄÚÁ£×ÓµÄ±ÈÀı MinNeighborsFraction£¬Ä¬ÈÏÊÇ0.25 
 options = optimoptions('particleswarm','MinNeighborsFraction',0.2);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% å‡½æ•°å®¹å¿åº¦FunctionTolerance, é»˜è®¤1e-6, ç”¨äºæ§åˆ¶è‡ªåŠ¨é€€å‡ºè¿­ä»£çš„å‚æ•°
+%% º¯ÊıÈİÈÌ¶ÈFunctionTolerance, Ä¬ÈÏ1e-6, ÓÃÓÚ¿ØÖÆ×Ô¶¯ÍË³öµü´úµÄ²ÎÊı
 options = optimoptions('particleswarm','FunctionTolerance',1e-8);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% æœ€å¤§åœæ»è¿­ä»£æ•°MaxStallIterations, é»˜è®¤20, ç”¨äºæ§åˆ¶è‡ªåŠ¨é€€å‡ºè¿­ä»£çš„å‚æ•°
+%% ×î´óÍ£ÖÍµü´úÊıMaxStallIterations, Ä¬ÈÏ20, ÓÃÓÚ¿ØÖÆ×Ô¶¯ÍË³öµü´úµÄ²ÎÊı
 options = optimoptions('particleswarm','MaxStallIterations',50);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 
-%% ä¸è€ƒè™‘è®¡ç®—æ—¶é—´ï¼ŒåŒæ—¶ä¿®æ”¹ä¸‰ä¸ªæ§åˆ¶è¿­ä»£é€€å‡ºçš„å‚æ•°
+%% ²»¿¼ÂÇ¼ÆËãÊ±¼ä£¬Í¬Ê±ĞŞ¸ÄÈı¸ö¿ØÖÆµü´úÍË³öµÄ²ÎÊı
 tic
 options = optimoptions('particleswarm','FunctionTolerance',1e-12,'MaxStallIterations',100,'MaxIterations',100000);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)
 toc
 
-%% åœ¨ç²’å­ç¾¤ç»“æŸåè°ƒç”¨å…¶ä»–å‡½æ•°è¿›è¡Œæ··åˆæ±‚è§£
+%% ÔÚÁ£×ÓÈº½áÊøºóµ÷ÓÃÆäËûº¯Êı½øĞĞ»ìºÏÇó½â
 tic
 options = optimoptions('particleswarm','FunctionTolerance',1e-12,'MaxStallIterations',50,'MaxIterations',20000,'HybridFcn',@fmincon);
 [x,fval] = particleswarm(@Obj_fun2,narvs,x_lb,x_ub,options)

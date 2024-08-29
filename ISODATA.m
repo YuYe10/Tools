@@ -2,12 +2,12 @@ function ISODATA(x,K,theta_N,theta_S,theta_c,L,I)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%input parameters%%%%%%
 % x : data
-% K : é¢„æœŸçš„èšç±»ä¸­å¿ƒæ•°
-% theta_N : æ¯ä¸€èšç±»ä¸­å¿ƒä¸­æœ€å°‘çš„æ ·æœ¬æ•°ï¼Œå°‘äºŽæ­¤æ•°å°±ä¸ä½œä¸ºä¸€ä¸ªç‹¬ç«‹çš„èšç±»
-% theta_S ï¼šä¸€ä¸ªèšç±»ä¸­æ ·æœ¬è·ç¦»åˆ†å¸ƒçš„æ ‡å‡†å·®
-% theta_c : ä¸¤èšç±»ä¸­å¿ƒä¹‹é—´çš„æœ€å°è·ç¦»ï¼Œå¦‚å°äºŽæ­¤æ•°ï¼Œä¸¤ä¸ªèšç±»è¿›è¡Œåˆå¹¶
-% L : åœ¨ä¸€æ¬¡è¿­ä»£è¿ç®—ä¸­å¯ä»¥å’Œå¹¶çš„èšç±»ä¸­å¿ƒçš„æœ€å¤šå¯¹æ•°
-% I ï¼šè¿­ä»£è¿ç®—çš„æ¬¡æ•°åºå·
+% K : Ô¤ÆÚµÄ¾ÛÀàÖÐÐÄÊý
+% theta_N : Ã¿Ò»¾ÛÀàÖÐÐÄÖÐ×îÉÙµÄÑù±¾Êý£¬ÉÙÓÚ´ËÊý¾Í²»×÷ÎªÒ»¸ö¶ÀÁ¢µÄ¾ÛÀà
+% theta_S £ºÒ»¸ö¾ÛÀàÖÐÑù±¾¾àÀë·Ö²¼µÄ±ê×¼²î
+% theta_c : Á½¾ÛÀàÖÐÐÄÖ®¼äµÄ×îÐ¡¾àÀë£¬ÈçÐ¡ÓÚ´ËÊý£¬Á½¸ö¾ÛÀà½øÐÐºÏ²¢
+% L : ÔÚÒ»´Îµü´úÔËËãÖÐ¿ÉÒÔºÍ²¢µÄ¾ÛÀàÖÐÐÄµÄ×î¶à¶ÔÊý
+% I £ºµü´úÔËËãµÄ´ÎÊýÐòºÅ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% step1
 n = size(x,1);
@@ -76,7 +76,7 @@ while ite<I
     elseif mod(ite,2)==0 || ~(N_c<2*K)
         flag = 0;
     end
-    %% åˆ†è£‚å¤„ç†
+    %% ·ÖÁÑ´¦Àí
     %% step8
     if flag
         flag = 0;
@@ -105,8 +105,8 @@ while ite<I
             con1 = (Dis(i)>D && N_i>2*(theta_N + 1));
             conr = ~(N_c>K/2);
             if con1 || con2
-               %%%%è¿™é‡Œåˆ†è£‚%%%%% 
-               flag = 1;%ä¸€æ—¦å‘ç”Ÿåˆ†è£‚ï¼Œé‚£ä¹ˆåˆ†è£‚ä¸€æ¬¡åŽå°±è¿”å›žç¬¬äºŒæ­¥ï¼›è‹¥æ²¡å‘ç”Ÿåˆ†è£‚ï¼Œåˆ™ç›´æŽ¥è¿›å…¥åˆå¹¶å¤„ç†æ­¥
+               %%%%ÕâÀï·ÖÁÑ%%%%% 
+               flag = 1;%Ò»µ©·¢Éú·ÖÁÑ£¬ÄÇÃ´·ÖÁÑÒ»´Îºó¾Í·µ»ØµÚ¶þ²½£»ÈôÃ»·¢Éú·ÖÁÑ£¬ÔòÖ±½Ó½øÈëºÏ²¢´¦Àí²½
                lamda = 0.5;
                max_sub = delta_max{i}(2);
                mean{i}(max_sub) = mean{i}(max_sub) + lamda * delta_max{i}(1);
@@ -122,7 +122,7 @@ while ite<I
     end
 
     end
-    %% åˆå¹¶å¤„ç†
+    %% ºÏ²¢´¦Àí
     if L
     %% step11
     Distance = zeros(N_c,N_c);
@@ -142,7 +142,7 @@ while ite<I
     if size(index,1) ~= 0
         for id=1:size(index,1)
             [m_i m_j]= seq2idx(index(id),N_c);
-            %%%%%è¿™é‡Œåˆå¹¶%%%%%
+            %%%%%ÕâÀïºÏ²¢%%%%%
             N_mi = size(class{m_i},1);
             N_mj = size(class{m_j},1);
             mean{m_i} = (N_mi*mean{m_i} + N_mj*mean{m_j})/(N_mi+N_mj);
@@ -156,9 +156,9 @@ while ite<I
     ite=ite+1;
 end
    for  i=1:N_c
-       fprintf('ç¬¬%dç±»èšç±»ä¸­å¿ƒä¸º\n',i);
+       fprintf('µÚ%dÀà¾ÛÀàÖÐÐÄÎª\n',i);
        disp(mean{i});
-       fprintf('ç¬¬%dç±»ä¸­å…ƒç´ ä¸º\n',i);
+       fprintf('µÚ%dÀàÖÐÔªËØÎª\n',i);
        disp(class{i});
    end
 end
