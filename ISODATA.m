@@ -1,3 +1,5 @@
+%% 动态聚类算法之ISODATA算法 
+% https://blog.csdn.net/qq_32642107/article/details/89925395
 function ISODATA(x,K,theta_N,theta_S,theta_c,L,I)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%input parameters%%%%%%

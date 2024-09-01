@@ -1,4 +1,4 @@
-# %%
+'''Person相关分析原理以及python实现 https://blog.csdn.net/qq_46033892/article/details/126877353'''
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr

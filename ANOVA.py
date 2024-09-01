@@ -1,3 +1,4 @@
+'''【Python・统计学】单因素方差分析（简单原理及代码）https://blog.csdn.net/TUTO_TUTO/article/details/137249825'''
 import pandas as pd
 import pingouin as pg
 from tabulate import tabulate

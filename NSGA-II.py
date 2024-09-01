@@ -1,3 +1,4 @@
+'''多目标最优化模型及算法应用（NSGA-II） https://blog.csdn.net/m0_51076536/article/details/118726131'''
 # Program Name: NSGA-II.py
 # author；lxy
 # Time:2023/03/11

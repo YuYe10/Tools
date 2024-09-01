@@ -1,4 +1,5 @@
 %% Matlab自带的粒子群函数 particleswarm
+% 粒子群算法matlab实现 https://blog.csdn.net/weixin_54338498/article/details/126004084
 % particleswarm函数是求最小值的
 % 如果目标函数是求最大值则需要添加负号从而转换为求最小值。
 

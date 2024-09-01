@@ -6,7 +6,7 @@ import numpy as np
 from scipy import linalg
 
 # 读取Excel文件的B:G列，除去第一行（标题）
-df = pd.read_excel('G:\\Codes\\CUMCM\\Tools\\PCA\\棉花产量论文作业的数据.xlsx', usecols='C:G')
+df = pd.read_excel('棉花产量论文作业的数据.xlsx', usecols='C:G')
 print(df)
 # df.to_numpy 是 pandas 中 DataFrame 对象的一个方法，用于将 DataFrame 的数据转换为 NumPy 数组。
 x = df.to_numpy()
