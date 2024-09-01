@@ -1,1 +1,1 @@
-This is a compilatiom of some useful models and algorithms.
+This is a compilatiom of some useful models and algorithms in MCM(Mathematical Contest in Modeling).
