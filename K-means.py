@@ -3,7 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt  
   
 # 假设我们有一些二维数据  
-data = np.array([[1, 2], [1, 4], [1, 0], [4, 2], [4, 4], [4, 0]])  
+data = np.random.randint(0,10,size=[100,2]) + np.random.random((100,2))
+print(data)
   
 # 设置聚类数K  
 K = 4
